@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/*
+@theme allows you to define your custom design tokens—like colors, fonts, and
+spacing—directly within your main CSS file, using standard CSS variables
+*/
+@theme {
+    --font-sans: "Roboto", sans-serif;
+    /*
+        1. Maps to 'grid-cols-...' utility because `grid-template-columns` is a reserved namespace (special keyword)
+        2. Renamed '70/30' to '70-30' because CSS variables cannot use slashes
+    */
+    --grid-template-columns-70-30: 70% 28%;
+}
