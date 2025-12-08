@@ -37,14 +37,16 @@ import {
 import HomePage from './pages/HomePage'
 import MainLayout from "./layouts/MainLayout";
 import JobsPage from "./pages/JobsPage";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 
 let router = createBrowserRouter(
     createRoutesFromElements(
         // MainLayout is being applied
-        <Route path='/' element={ <MainLayout /> }>  // index path
-            <Route index element={ <HomePage /> } />  // index path
-            <Route path='/jobs' element={ <JobsPage /> } />  // index path
+        <Route path='/' element={ <MainLayout /> }>  {/*index path*/}
+            <Route index element={ <HomePage /> } />
+            <Route path='/jobs' element={ <JobsPage /> } />
+            <Route path='*' element={ <NotFoundPage /> } />  {/* The asterisk catches all pages */}
             {/*<Route path='/about'   element={ <HomePage /> } />*/}
 
         </Route>

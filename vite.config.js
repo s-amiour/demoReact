@@ -10,5 +10,14 @@ export default defineConfig({
   ],
   server: {
       port: 3000,
+      // what this does is that whenever the client hits /api/jobs, it's really going to hit
+      // localhost:8000/jobs
+      proxy: {
+          '/api': {
+              target: 'http://localhost:8000',
+              changeOrigin: true,
+              rewrite: (path) => path.replace(/^\/api/, '')
+          }
+      }
   }
 })
