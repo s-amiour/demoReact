@@ -27,30 +27,45 @@
 // }
 // export default App
 
+import {
+    Route,  // to define route
+    createBrowserRouter,  // create router in browser
+    createRoutesFromElements,
+    RouterProvider,  // provides router for routing; needed for <Route /> to work
+} from 'react-router-dom'
 
-import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import HomeCard from './components/HomeCard.jsx'
-import JobListings from "./components/JobListings.jsx";
-import ViewAllJobs from "./components/ViewAllJobs.jsx";
+import HomePage from './pages/HomePage'
+import MainLayout from "./layouts/MainLayout.jsx";
+
+
+let router = createBrowserRouter(
+    createRoutesFromElements(
+        // MainLayout is being applied
+        <Route path='/' element={ <MainLayout /> }>  // index path
+            <Route index element={ <HomePage /> } />  // index path
+            {/*<Route path='/about'   element={ <HomePage /> } />*/}
+        </Route>
+    )
+)
 
 const App = () => {
-    return (
-        <>
-            <Navbar />
-            {/* You can pass in props (properties) by, as in HTML, specifying them in the tag.
-             Then, importing them in the respective component file */}
-            <Hero />
-            {/*It is still possible to have content inside a component elem.
-            However, I prefer to keep the App.jsx clear from any html tags. */}
-            {/* <Card/> */
-            /*      content */
-            /*  </Card> */}
-            <HomeCard />
-            <JobListings />
-            <ViewAllJobs />
-        </>
-    )
+//     return (
+//         <>
+//             <Navbar />
+//             {/* You can pass in props (properties) by, as in HTML, specifying them in the tag.
+//              Then, importing them in the respective component file */}
+//             <Hero />
+//             {/*It is still possible to have content inside a component elem.
+//             However, I prefer to keep the App.jsx clear from any html tags. */}
+//             {/* <Card/> */
+//             /*      content */
+//             /*  </Card> */}
+//             <HomeCard />
+//             <JobListings />
+//             <ViewAllJobs />
+//         </>
+//     )
+// }
+    return <RouterProvider router={router}/>
 }
 export default App
