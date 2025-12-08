@@ -35,7 +35,8 @@ import {
 } from 'react-router-dom'
 
 import HomePage from './pages/HomePage'
-import MainLayout from "./layouts/MainLayout.jsx";
+import MainLayout from "./layouts/MainLayout";
+import JobsPage from "./pages/JobsPage";
 
 
 let router = createBrowserRouter(
@@ -43,7 +44,9 @@ let router = createBrowserRouter(
         // MainLayout is being applied
         <Route path='/' element={ <MainLayout /> }>  // index path
             <Route index element={ <HomePage /> } />  // index path
+            <Route path='/jobs' element={ <JobsPage /> } />  // index path
             {/*<Route path='/about'   element={ <HomePage /> } />*/}
+
         </Route>
     )
 )
