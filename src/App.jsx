@@ -38,14 +38,18 @@ import HomePage from './pages/HomePage'
 import MainLayout from "./layouts/MainLayout";
 import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
+import JobPage, { jobLoader } from "./pages/JobPage";
 
 
 let router = createBrowserRouter(
     createRoutesFromElements(
+        // ROUTES
         // MainLayout is being applied
         <Route path='/' element={ <MainLayout /> }>  {/*index path*/}
             <Route index element={ <HomePage /> } />
             <Route path='/jobs' element={ <JobsPage /> } />
+            {/*The colon signifies that it's variable is dynamic*/}
+            <Route path='/jobs/:id' element={ <JobPage /> } loader={jobLoader} />
             <Route path='*' element={ <NotFoundPage /> } />  {/* The asterisk catches all pages */}
             {/*<Route path='/about'   element={ <HomePage /> } />*/}
 
